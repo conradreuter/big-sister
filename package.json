@@ -1,0 +1,15 @@
+{
+	"author": {
+		"email": "conrad.reuter@enavo.com",
+		"name": "Conrad Reuter"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"rxjs": "^5.5.6"
+	},
+	"devDependencies": {
+		"@types/node": "^9.3.0",
+		"lerna": "^2.7.0",
+		"typescript": "^2.6.2"
+	}
+}

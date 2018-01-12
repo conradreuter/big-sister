@@ -1,2 +1,3 @@
 # big-sister
-Presence tracker
+
+Tracks presence over time.
