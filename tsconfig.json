@@ -4,6 +4,6 @@
     "sourceMap": true,
     "strict": true,
     "strictFunctionTypes": false,
-    "target": "es6"
+    "target": "es2016"
   }
 }
