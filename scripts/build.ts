@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as tsc from 'typescript'
 import { promisify } from 'util'
-import { PACKAGES, Package } from './util'
+import { PACKAGES, Package } from './__util__'
 
 buildPackages()
 

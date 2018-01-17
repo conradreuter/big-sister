@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as rimraf from 'rimraf'
 import { promisify } from 'util'
-import { PACKAGES, Package } from './util'
+import { PACKAGES, Package } from './__util__'
 
 cleanPackages()
 
