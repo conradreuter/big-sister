@@ -12,9 +12,9 @@
   },
   "scripts": {
     "info": "npm-scripts-info",
-    "build": "ts-node scripts/build.ts",
-    "clean": "ts-node scripts/clean.ts",
-    "watch": "ts-node scripts/watch.ts"
+    "build": "tsc -p .",
+    "clean": "rimraf dist/",
+    "watch": "tsc -p . -w"
   },
   "dependencies": {
     "pg-promise": "^7.3.3",
@@ -27,11 +27,9 @@
     "@types/node": "^9.3.0",
     "@types/pg-promise": "^5.4.3",
     "@types/request-promise-native": "^1.0.10",
-    "@types/rimraf": "^2.0.2",
     "@types/xml2js": "^0.4.2",
     "npm-scripts-info": "^0.3.6",
     "rimraf": "^2.6.2",
-    "ts-node": "^4.1.0",
     "typescript": "^2.6.2"
   }
 }
