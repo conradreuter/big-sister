@@ -1,0 +1,8 @@
+{
+  "exec": "node dist/node_modules/@big-sister/core",
+  "ignoreRoot": [],
+  "watch": [
+    "dist/",
+    "big-sister.config.json"
+  ]
+}
