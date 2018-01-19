@@ -8,12 +8,14 @@
     "info": "Show this information message.",
     "build": "Build all packages.",
     "clean": "Clean all packages.",
+    "start": "Start the application when it has been built or is watched.",
     "watch": "Build all packages and watch for changes."
   },
   "scripts": {
     "info": "npm-scripts-info",
     "build": "tsc -p .",
     "clean": "rimraf dist/",
+    "start": "node dist/node_modules/@big-sister/core",
     "watch": "tsc -p . -w"
   },
   "dependencies": {
