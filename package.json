@@ -24,6 +24,7 @@
     "koa": "^2.4.1",
     "koa-graphql": "^0.7.3",
     "koa-mount": "^3.0.0",
+    "lodash": "^4.17.4",
     "pg-promise": "^7.3.3",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
@@ -36,6 +37,7 @@
     "@types/graphql": "^0.12.1",
     "@types/koa": "^2.0.43",
     "@types/koa-mount": "^3.0.0",
+    "@types/lodash": "^4.14.93",
     "@types/node": "^9.3.0",
     "@types/pg-promise": "^5.4.3",
     "@types/request": "^2.0.12",
@@ -47,6 +49,7 @@
     "nodemon": "^1.14.11",
     "npm-scripts-info": "^0.3.6",
     "rimraf": "^2.6.2",
+    "typelevel-ts": "^0.2.3",
     "typescript": "^2.6.2"
   }
 }
