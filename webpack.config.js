@@ -9,6 +9,13 @@ module.exports = {
     noInfo: true,
     overlay: { warnings: true, errors: true },
     port: 3001,
+    proxy: {
+      '/api': {
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        target: 'http://localhost:3000',
+      },
+    },
   },
   devtool: '#eval-source-map',
   entry: './src-ui/index.js',
