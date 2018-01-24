@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-pull-to-refresh :handler="refresh">
     <q-list link no-border>
       <q-list-header>Anwesenheit</q-list-header>
       <q-item v-for="(isPresent, identifier) in presence" :key="identifier">
@@ -12,7 +12,7 @@
         <q-item-main>{{ identifier }}</q-item-main>
       </q-item>
     </q-list>
-  </div>
+  </q-pull-to-refresh>
 </template>
 
 <script>
@@ -23,6 +23,8 @@ import {
   QItemSide,
   QItemTile,
   QList,
+  QListHeader,
+  QPullToRefresh,
 } from 'quasar-framework'
 
 export default {
@@ -33,6 +35,8 @@ export default {
     QItemSide,
     QItemTile,
     QList,
+    QListHeader,
+    QPullToRefresh,
   },
   apollo: {
     allIdentifiers: {
@@ -44,6 +48,7 @@ export default {
       query: gql`{
         presentIdentifiers: currentPresence
       }`,
+      pollInterval: 5000,
     },
   },
   computed: {
@@ -60,6 +65,12 @@ export default {
         presence[identifier] = tmp[identifier]
       }
       return presence
+    },
+  },
+  methods: {
+    async refresh(done) {
+      await this.$apollo.queries.presentIdentifiers.refetch()
+      done()
     },
   },
 }

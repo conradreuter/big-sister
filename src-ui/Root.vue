@@ -9,6 +9,7 @@
         <q-list-header>Navigation</q-list-header>
         <q-side-link
           v-for="sidelink in sidelinks"
+          exact
           item
           :key="sidelink.path"
           :to="sidelink.path"
@@ -59,4 +60,7 @@ export default {
 </script>
 
 <style>
+body {
+  overflow: hidden;
+}
 </style>
