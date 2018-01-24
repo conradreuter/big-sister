@@ -3,7 +3,7 @@
     <q-layout ref="layout">
       <q-toolbar color="primary" slot="header">
         <q-btn flat @click="$refs.layout.toggleLeft()"><q-icon name="menu" /></q-btn>
-        <q-toolbar-title>{{ title }}</q-toolbar-title>
+        <q-toolbar-title>Zeiterfassung</q-toolbar-title>
       </q-toolbar>
       <div slot="left">
         <q-list-header>Navigation</q-list-header>
@@ -50,12 +50,9 @@ export default {
         .filter((route) => route.meta.sidelink)
         .map((route) => ({
           path: route.path,
-          title: route.meta.title,
+          title: route.meta.sidelink,
         }))
       )
-    },
-    title() {
-      return this.$route.meta.title
     },
   },
 }

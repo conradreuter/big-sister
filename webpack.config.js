@@ -18,7 +18,10 @@ module.exports = {
     },
   },
   devtool: '#eval-source-map',
-  entry: './src-ui/index.js',
+  entry: [
+    'babel-polyfill',
+    './src-ui/index.js',
+  ],
   module: {
     rules: [
       {

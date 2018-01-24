@@ -1,20 +1,67 @@
 <template>
-  <div>HOME</div>
+  <div>
+    <q-list link no-border>
+      <q-list-header>Anwesenheit</q-list-header>
+      <q-item v-for="(isPresent, identifier) in presence" :key="identifier">
+        <q-item-side left>
+          <q-item-tile
+            :color="isPresent ? 'green' : 'grey'"
+            :icon="isPresent ? 'check circle' : 'cancel'"
+          />
+        </q-item-side>
+        <q-item-main>{{ identifier }}</q-item-main>
+      </q-item>
+    </q-list>
+  </div>
 </template>
 
 <script>
 import gql from 'graphql-tag'
-
-const knownIdentifiersQuery =
-  gql`
-    query KnownIdentifiers {
-
-    }
-  `
-
+import {
+  QItem,
+  QItemMain,
+  QItemSide,
+  QItemTile,
+  QList,
+} from 'quasar-framework'
 
 export default {
   name: 'Home',
+  components: {
+    QItem,
+    QItemMain,
+    QItemSide,
+    QItemTile,
+    QList,
+  },
+  apollo: {
+    allIdentifiers: {
+      query: gql`{
+        allIdentifiers: knownIdentifiers
+      }`,
+    },
+    presentIdentifiers: {
+      query: gql`{
+        presentIdentifiers: currentPresence
+      }`,
+    },
+  },
+  computed: {
+    presence() {
+      const tmp = {}
+      for (let identifier of this.allIdentifiers || []) {
+        tmp[identifier] = false
+      }
+      for (let identifier of this.presentIdentifiers || []) {
+        tmp[identifier] = true
+      }
+      const presence = {}
+      for (let identifier of Object.keys(tmp).sort()) {
+        presence[identifier] = tmp[identifier]
+      }
+      return presence
+    },
+  },
 }
 </script>
 

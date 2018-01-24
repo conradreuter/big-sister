@@ -21,6 +21,7 @@
     "watch-ui": "webpack-dev-server --progress"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "graphql": "^0.12.3",
     "graphql-tools": "^2.18.0",
     "koa": "^2.4.1",

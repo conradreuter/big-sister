@@ -1,4 +1,4 @@
-import About from './About.vue'
+import Exports from './Exports.vue'
 import Home from './Home.vue'
 
 export default [
@@ -6,16 +6,14 @@ export default [
     path: '/',
     component: Home,
     meta: {
-      sidelink: true,
-      title: 'Home',
+      sidelink: 'Home',
     },
   },
   {
-    path: '/about',
-    component: About,
+    path: '/exports',
+    component: Exports,
     meta: {
-      sidelink: true,
-      title: 'About',
+      sidelink: 'Exports',
     },
   },
 ]
