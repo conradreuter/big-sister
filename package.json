@@ -14,12 +14,11 @@
   "scripts": {
     "info": "npm-scripts-info",
     "build": "tsc -p .",
-    "build-ui": "webpack",
+    "build-ui": "webpack --config webpack.config.prod.js",
     "clean": "rimraf dist/",
-    "clean-ui": "rimraf dist-ui/",
     "start": "nodemon",
     "watch": "tsc -p . -w",
-    "watch-ui": "webpack-dev-server --progress"
+    "watch-ui": "webpack-dev-server --config webpack.config.dev.js --progress"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -28,7 +27,6 @@
     "koa": "^2.4.1",
     "koa-graphql": "^0.7.3",
     "koa-mount": "^3.0.0",
-    "koa-static": "^4.0.2",
     "lodash": "^4.17.4",
     "pg-promise": "^7.3.3",
     "request": "^2.83.0",
@@ -69,6 +67,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
     "graphql-tag": "^2.6.1",
     "html-webpack-plugin": "^2.30.1",
     "nodemon": "^1.14.11",
@@ -79,6 +78,7 @@
     "style-loader": "^0.19.1",
     "typelevel-ts": "^0.2.3",
     "typescript": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
     "vue": "^2.5.13",
     "vue-apollo": "^3.0.0-alpha.3",
@@ -86,11 +86,7 @@
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1"
+  }
 }

@@ -2,7 +2,7 @@
   "exec": "node dist/node_modules/@big-sister/core",
   "ignoreRoot": [],
   "watch": [
-    "dist/",
+    "dist/node_modules/@big-sister/",
     "big-sister.config.json"
   ]
 }
