@@ -6,11 +6,11 @@ const baseConfig = require('./webpack.config.base')
 
 module.exports = merge(baseConfig, {
   plugins: [
-    /*new UglifyJsPlugin({
+    new UglifyJsPlugin({
       parallel: true,
     }),
     new ExtractTextPlugin({
       filename: '[name].[contenthash].css',
-    }),*/
+    }),
   ],
 })

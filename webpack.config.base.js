@@ -1,14 +1,15 @@
-const glob = require('glob')
+const fs = require('fs')
+const CachePlugin = require('hard-source-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const _ = require('lodash')
 const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  context: path.resolve(__dirname, 'src/node_modules/@big-sister'),
+  context: path.resolve(__dirname, 'src/node_modules/@big-sister-ui'),
   entry: (
-    _(glob.sync('*/ui/', { cwd: path.resolve(__dirname, 'src/node_modules/@big-sister') }))
-    .map(dir => [path.dirname(dir), `./${dir}`])
+    _(fs.readdirSync(path.resolve(__dirname, 'src/node_modules/@big-sister-ui')))
+    .map(dir => [dir, `./${dir}`])
     .fromPairs()
     .value()
   ),
@@ -34,27 +35,30 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, './dist/node_modules/@big-sister'),
-    filename: '[name]/ui/index.js',
+    path: path.resolve(__dirname, './dist/node_modules/@big-sister-ui'),
+    filename: '[name]/index.js',
   },
   performance: {
     hints: false
   },
   plugins: [
+    new CachePlugin({
+      cacheDirectory: path.resolve(__dirname, '.cache/webpack/[confighash]'),
+    }),
     new webpack.optimize.CommonsChunkPlugin({
-      filename: 'core/ui/common.js',
+      filename: 'core/common.js',
       name: 'common',
     }),
     new HtmlPlugin({
-      filename: 'core/ui/index.html',
+      filename: 'core/index.html',
       inject: false,
-      template: 'core/ui/index.html',
+      template: 'core/index.html',
     }),
   ],
   resolve: {
-    alias: {
+    /*alias: {
       'vue$': 'vue/dist/vue.esm.js'
-    },
+    },*/
     extensions: ['.js', '.vue', '.json']
   },
 }
